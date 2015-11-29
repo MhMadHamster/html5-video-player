@@ -9,6 +9,7 @@ $(document).ready(function() {
     };
 
     var controls = {
+        player: $('.custom-player'),
         video: $('.custom-video'),
         playPause: $('.play-pause'),
         fullscreen: $('.fullscreen'),
@@ -34,7 +35,7 @@ $(document).ready(function() {
                 if (this.video[0].requestFullscreen) {
                   this.video[0].requestFullscreen();
                 } else if (this.video[0].msRequestFullscreen) {
-                  this.video[0].msRequestFullscreen();
+                  this.player[0].msRequestFullscreen();
                 } else if (this.video[0].mozRequestFullScreen) {
                   this.video[0].mozRequestFullScreen();
                 } else if (this.video[0].webkitRequestFullscreen) {
@@ -149,6 +150,13 @@ $(document).ready(function() {
         controls.volumeSpeaker.click(function() {
             controls.toggleMute();
         });
+
+    // if ie10 turn off default controls
+    if (navigator.appVersion.indexOf('MSIE 10') === -1) {
+        video.controls = false;
+    } else {
+        $('.custom-controls').hide();
+    }
 
 
     function formatTime(time, hours) {
