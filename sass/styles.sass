@@ -1,0 +1,168 @@
+@mixin noselet()
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */
+
+html,
+body
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+
+.custom-player
+    display: inline-block
+    position: relative
+    font-size: 0
+
+.custom-video
+    max-width: 600px
+    max-height: 400px
+
+    &::-webkit-media-controls
+        display: none !important
+
+.custom-controls
+    background: rgba(0,0,0, .5)
+    width: 100%
+    height: 50px
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    box-sizing: border-box
+    padding: 0px 20px
+    // to make it visible in fullscreen
+    z-index: 2147483647
+    max-width: 600px
+    @include noselet()
+
+    .play-pause
+        content: ''
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 30px
+        margin: auto
+        width: 0
+        height: 0
+        border-left: 15px solid #ccc
+        border-top: 10px solid transparent
+        border-bottom: 10px solid transparent
+        cursor: pointer
+
+        &.paused
+            border-top: none
+            border-bottom: none
+            width: 5px
+            height: 20px
+            border-right: 5px solid #ccc
+            border-left-width: 5px
+
+            &:hover
+                border-right-color: #fff
+
+        &:hover
+            border-left-color: #fff
+
+    .fullscreen
+        position: absolute
+        bottom: 0
+        top: 0
+        margin: auto
+        right: 30px
+
+        svg
+            margin-top: 2px
+
+        &:hover
+            cursor: pointer
+
+            svg path
+                fill: #fff
+
+    .progress
+        top: -3px
+        left: 0
+        right: 0
+        margin: auto
+        position: absolute
+        height: 3px
+        background-color: #fff
+
+        &:hover
+            cursor: pointer
+
+        .total,
+        .current,
+        .buffered
+            height: 100%
+
+        .buffered
+            width: 0
+            background-color: #979797
+
+        .current
+            width: 0
+            background-color: #477fb4
+            transition: width .2s
+
+    .time
+        position: absolute
+        left: 70px
+        line-height: 50px
+        font-size: 14px
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif
+        color: #fff
+        text-shadow: 1px 1px 3px rgba(0,0,0, .9)
+
+    .volume
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 170px
+
+        svg
+            margin-top: 12.5px
+            vertical-align: middle
+            margin-right: 5px
+
+            &:hover
+                cursor: pointer
+                path
+                    fill: #fff
+
+            path
+                fill: #ccc
+
+            &#volume-off
+                display: none
+
+        &.muted
+            #volume-on
+                display: none
+            #volume-off
+                display: inline-block
+
+        &-bar
+            width: 75px
+            height: 5px
+            margin-left: 10px
+            display: inline-block
+            position: absolute
+            top: 0
+            bottom: 0
+            margin: auto
+            border-radius: 3px
+            background-color: #979797
+
+            &:hover
+                cursor: pointer
+
+            .current
+                width: 100%
+                height: 100%
+                background-color: #477fb4
+                border-radius: 3px

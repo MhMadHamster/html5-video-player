@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 custom video player</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div class="custom-player">
+        <video class="custom-video">
+            <source src="video/sample-long.mp4" type="video/mp4">
+        </video>
+        <div class="custom-controls">
+            <span class="play-pause"></span>
+            <span class="fullscreen">
+                <svg viewBox="0 0 17 17" width="45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="si-glyph si-glyph-fullscreen"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(1.000000, 3.000000)" fill="#ccc"><rect x="2" y="2" width="12" eight="8" class="si-glyph-fill"></rect><path d="M2.918,11.938 L0,11.938 L0,9.062 L1,9.062 L1,11.042 L2.918,11.042 L2.918,11.938 Z" class="si-glyph-fill"></path><path d="M16,11.938 L13.062,11.938 L13.062,11.042 L15,11.042 L15,9.058 L16,9.058 L16,11.938 Z" class="si-glyph-fill"></path><path d="M16,2.917 L15,2.917 L15,0.967 L13.057,0.967 L13.057,0.021 L16,0.021 L16,2.917 Z" class="si-glyph-fill"></path><path d="M1,2.938 L0,2.938 L0,0 L2.938,0 L2.938,0.938 L1,0.938 L1,2.938 Z" class="si-glyph-fill"></path></g></g></svg>
+            </span>
+            <div class="progress">
+                <div class="total">
+                    <div class="buffered"><div class="current"></div></div>
+                </div>
+            </div>
+            <div class="time">
+                <span class="current">00:00</span> /
+                <span class="duration">00:00</span>
+            </div>
+            <div class="volume">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="volume-on" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 512 498.917" enable-background="new 0 0 512 498.917" xml:space="preserve"><path d="M0,164.125v170.667h113.777L256,477.014V21.903L113.777,164.125H0z M384,249.458c0-50.208-29.014-93.583-71.111-114.485  v229.125C354.986,343.042,384,299.667,384,249.458z M312.889,0v58.736c82.194,24.465,142.223,100.556,142.223,190.722  c0,90.167-60.028,166.25-142.223,190.723v58.736C426.806,473.027,512,371.348,512,249.458C512,127.576,426.806,25.889,312.889,0z" fill="#000000"/></svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="volume-off" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path d="M384,256c0-50.208-29.014-93.583-71.111-114.486v62.861l69.834,69.833C383.583,268.223,384,262.118,384,256z M455.111,256  c0,26.736-5.834,51.917-15.361,75.098l43.098,43.097C501.333,338.777,512,298.667,512,256c0-121.743-85.194-223.569-199.111-249.458  v58.736C395.083,89.743,455.111,165.833,455.111,256z M36.264,0L0,36.264l134.402,134.403H0v170.666h113.777L256,483.556V292.264  l121.027,121.042c-19.055,14.639-40.527,26.444-64.139,33.556v58.736c39.111-8.959,74.806-26.875,104.819-51.486L475.736,512  L512,475.736l-256-256L36.264,0z M256,28.444l-59.451,59.451L256,147.34V28.444z" fill="#000000"/></svg>
+
+                <div class="volume-bar">
+                    <div class="current"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
